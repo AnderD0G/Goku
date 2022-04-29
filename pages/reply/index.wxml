@@ -1,0 +1,71 @@
+<view>
+  <view class="front-head">
+    <view style='display:flex;height:44px;'></view>
+    <image style="width: 32px;height: 32px" class="kind-list-img" src="/images/back.png" bindtap="tapName"></image>
+  </view>
+
+  <view class="comment" style="background-color: hotpink;">
+    <!--用户信息-->
+    <view class="info">
+      <!-- 头像 -->
+      <view class="avatar">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{play.user.avatar_url}}" mode="cover"></image>
+      </view>
+      <!-- 名称 -->
+      <view class="name_time">
+        <view class="name">
+          {{play.user.nick_name}}
+        </view>
+        <!-- 时间 -->
+        <vew class="time">
+          {{play.publish_time}}
+        </vew>
+      </view>
+
+    </view>
+    <!--评论内容-->
+    <view class="content">
+      {{play.content}}
+    </view>
+  </view>
+
+  <view class="replies">
+    <block wx:for="{{play.reply}}" wx:key="id">
+      <view id="{{item.id}}">
+        <view class="info">
+          <!-- 头像 -->
+          <view class="avatar">
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{item.user.avatar_url}}" mode="cover"></image>
+          </view>
+          <!-- 名称 -->
+          <view class="name_time">
+            <view class="name">
+              {{item.user.nick_name}}
+            </view>
+            <!-- 时间 -->
+            <vew class="time">
+              {{item.publish_time}}
+            </vew>
+          </view>
+
+        </view>
+        <!-- 评论内容 -->
+        <view class="content reply">
+          <block wx:if="{{item.reply_to.id!=0}}">
+            <view>@</view>
+            <view class="who">{{item.reply_to.nick_name}}</view>
+            <view>：</view>
+          </block>
+          <view class="message">
+            {{item.content}}
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="message">
+    <view class="textarea-wrp">
+      <textarea bindblur="haha" auto-height bindconfirm="haha" placeholder="{{placeholder}}"/>
+    </view>
+  </view>
+</view>

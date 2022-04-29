@@ -1,0 +1,87 @@
+<!--首页的对局信息-->
+<wxs src="../../utils/datetool.wxs" module="tools" />
+<view class="front-head">
+  <view style='display:flex;height:44px;'></view>
+  <image style="width: 32px;height: 32px" class="kind-list-img" src="/images/loc.png"></image> 上海
+</view>
+
+<!--组局信息列表-->
+<view class="vslist">
+  <block wx:for="{{journey}}" wx:key="id">
+    <view id="{{item.id}}" bindtap="tapName" data-dis="{{item.dis}}" class="list-item">
+
+      
+      <view style='display:flex;height:230rpx;'>
+        <!--图片-->
+        <view >
+          <image class="kind-list-img" src="https://ganesh-pic.oss-cn-hangzhou.aliyuncs.com/{{item.script.script_cover_url}}"></image>
+        </view>
+
+        <!--图片周围的组局信息column-->
+        <view class="kind-list-column" style='flex-grow:1;display:flex;flex-direction:column;'>
+         <!--时间信息-->
+          <view class="time_info"> 
+             <view class="date">{{tools.sub(tools.dateLater(item.time,0).time,5,10)}}</view> 
+             <view class="week">{{tools.dateLater(item.time,0).week}}</view> 
+             <view class="time">{{tools.sub(item.time,11,16)}}</view> 
+          </view>
+           <!--图片加文字-->
+          <view style='flex-grow:1;'> 
+            <image style="width: 40rpx;height: 40rpx" class="kind-list-img" src="/images/book.png"></image>
+             <view>{{item.script.script_name}}</view> 
+          </view>
+            <!--店以及距离-->
+          <view style='flex-grow:1;'> 
+            <image style="width: 40rpx;height: 40rpx" class="kind-list-img" src="/images/newloc.png"></image>
+            <view class="position" style="display:flex;width:85%;justify-content:space-between">
+              <view>{{item.shop.shop_name}}</view> 
+              <view class="km">{{tools.kmtrans(item.dis)}}km</view>
+            </view>
+          </view>
+          <!--钱-->
+          <view style='flex-grow:1;'> 
+             <view class="price">¥108/人</view> 
+          </view>
+        </view>
+      </view>
+      <!--组局信息-->
+      <view class="shop-desc"> {{item.title}} </view> 
+      <view class="person-infos">
+        <view class="people" style="display: flex;">
+      <block wx:for="{{tools.truncate(item.personp)}}" wx:key="id">
+      <!-- 如果性别是男  -->
+        <block wx:if="{{item.gender==1}}">
+          <!-- 如果index不是0  -->
+          <block wx:if="{{index!=0}}">
+            <image  src="/images/male.png" style="left:{{index*6.375}}%;background-color: rgb(221, 255, 240);position: absolute;"></image>
+          </block>
+          <block wx:else>
+            <image  src="/images/male.png" style="background-color: rgb(221, 255, 240);"></image>
+          </block> 
+        </block>
+         <!-- 性别为女 -->
+        <block wx:if="{{item.gender==0}}">
+        <!-- index不为0 -->
+          <block wx:if="{{index!=0}}">
+            <image  src="/images/female.png" style="left:{{index*6.375}}%;background-color: rgb(253, 226, 238);position: absolute;"></image>
+          </block>
+          <block wx:else>
+            <image  src="/images/female.png" style="background-color: rgb(253, 226, 238);"></image>
+          </block>  
+        </block>
+      </block>
+      <!-- 覆盖涂层 -->
+      <block wx:if="{{item.personp.length>5}}">
+        <image  src="/images/white.png" style="left:{{4*6.375}}%;background-color: black;position: absolute;opacity:0.5"></image>
+      </block>
+      <!-- 人数右侧的观察按钮 -->
+        <view class="detail">
+        <image  src="/images/look.png" ></image>
+          <text>{{item.personp.length}}/{{item.script.script_player_limit}}</text>
+        </view> 
+  
+    </view></view>
+    
+    </view>
+  </block>
+</view>

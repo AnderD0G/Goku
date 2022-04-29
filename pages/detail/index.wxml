@@ -1,0 +1,119 @@
+
+  <view class="front-head" >
+    <view style='display:flex;height:44px;'></view>
+    <image style="width: 32px;height: 32px" class="kind-list-img" src="/images/back.png" bindtap="tapName"></image> 
+  </view>
+
+  <scroll-view style="height:{{2*height}}px">
+
+  <!--滚动-->
+  <view style='height:{{height}}px'>
+    <!--一些关于剧本的详情信息-->
+    <view class="detail" >
+      <!--内容--> 
+      <view class="play-content">
+        <!--图片--> 
+        <view>
+              <image class="kind-list-img" src="https://ganesh-pic.oss-cn-hangzhou.aliyuncs.com/{{play.script_cover_url}}"></image>
+        </view>
+        <!--名字 + tag +人数 +时长 + 困难度--> 
+        <view class="right-content">
+          <view class="name">{{play.script_name}}</view>
+          <view>
+            <view>欢乐 机制 战争</view>
+          </view>
+          <view class="script-content">
+              <view>5男3女</view> 
+              <view>4.5小时</view>
+              <view>进阶</view>
+            </view>  
+        </view>
+
+      </view> 
+      <!--评分-->       
+      <view class="score-plate">
+        <view>谜圈评分</view>
+        <view class="div-score">
+          <view class="score">
+          8.6
+          </view>
+          <view class="separate-score">
+            <view>推理{{play.script_complex_score}}</view>
+            <view>剧情{{play.script_plot_score}}</view>
+            <view>沉浸{{play.script_score}}</view>
+          </view>
+        </view>  
+      </view>
+      <!--剧情简介-->       
+      <!-- <view class="summarize">
+      <view class="intro">剧情简介</view>
+        <view class="detail">{{play.script_text_context}}</view>  
+      </view> -->
+  <view class="wrap">
+    <view class="text">
+      {{play.script_text_context}}
+    </view>
+  </view>
+      <!--剧本图片集-->
+      <view class="pics">
+        <scroll-view scroll-x="true" style=" white-space: nowrap; flex-grow:1" >
+          <block wx:for="{{play.script_image_content}}">
+            <view style="display: inline-block" id="{{item}}" class="character">
+              <image class="kind-list-img" src="https://ganesh-pic.oss-cn-hangzhou.aliyuncs.com/{{item}}"></image>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+
+  </view>
+  <view class="title" id="title" style="background-color: grey;">
+        <view>剧本评价</view>
+        <view>商家和组局</view>
+  </view>   
+    <!-- 组局信息和剧本评价 -->
+    <view class="evaluate" id="evaluate" style="background-color: green;">
+      <scroll-view scroll-y="{{scrollTrigger}}" style="height:{{height-statusHeight}}px">
+        <view wx:for="{{comments}}" wx:key="id"> 
+        <!-- 每个评论 -->
+          <view id="{{item.id}}" class="comment" bindtap="reply" style="background-color: hotpink;">
+            <!-- 评论信息 -->
+            <view class="info">
+              <!-- 头像 -->
+              <view class="avatar">
+                <image bindtap="bindViewTap" class="userinfo-avatar" src="{{item.user.avatar_url}}" mode="cover"></image>
+              </view>
+              <!-- 名称 -->
+              <view class="name_time">
+                <view class="name">
+                  {{item.user.nick_name}}
+                </view>
+                <!-- 时间 -->
+                <vew class="time">
+                  {{item.publish_time}}
+                </vew>
+              </view>
+
+            </view>
+            <!-- 评论内容 -->
+            <view class="content">
+              {{item.content}}
+            </view>
+            <!-- 底部 -->
+            <view class="bottom">
+              <!-- 回复 -->
+              <view class="reply">
+                <view class="icon">
+                  <image src="/images/reply.png"></image> 
+                </view>
+                <view class="num">{{item.reply_counts}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </scroll-view>
+    </view>
+
+  </scroll-view>
+

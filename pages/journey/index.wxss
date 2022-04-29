@@ -1,0 +1,11 @@
+/**index.wxss**/
+
+.kind-list-img {
+  width: 250rpx;
+  height: 400rpx;
+}
+
+.shop-img {
+  width: 100rpx;
+  height: 100rpx;
+}

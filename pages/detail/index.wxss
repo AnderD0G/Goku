@@ -1,0 +1,125 @@
+.front-head{
+  background-color: rgb(255,255,255);
+}
+/*设置page高度百分百，因为list列表会继承page的高度*/
+page{
+  color: black;
+  height:100%;
+  background-color: rgb(242, 242, 242);
+}
+/*图片列表的css*/
+.kind-list-img {
+  /*占据整个手机长的百分之33，长宽比为八比五*/
+  width: 190rpx;
+  height: 279rpx;
+}
+/*图片边缘切割*/
+image{
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.play-content{
+  display: flex;
+}
+.play-content .right-content{
+  display: flex;
+  flex-direction: column;
+  flex-grow:1
+}
+/*每个的flex-grow 都是1*/
+.play-content .right-content > view{
+  flex-grow: 1;
+}
+/*人数时间难度*/
+.play-content .right-content .script-content{
+  display: flex;
+}
+.div-score{
+  display: flex;
+}
+.score-plate{
+  display: flex;
+  flex-direction: column;
+}
+.div-score{
+  display: flex;
+  flex-direction: row;
+}
+.score{
+  flex-grow: 0.3;
+}
+.separate-score{
+  flex: 0.7;
+}
+.score-plate{
+  background-color: gainsboro;
+}
+.summarize{
+  background-color: cadetblue;
+}
+/* .text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+} */
+.btn{
+  float: right;
+  height: 15px;
+  clear: both;
+}
+.text::before{
+  content: '';
+  float: right;
+  /* width: 10px; */
+  background: red;
+  /*height: 70%;*/
+
+  height: 100%;
+  margin-bottom: -20px;
+
+}
+.wrap{
+  display: flex;
+}
+.detail{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.userinfo-avatar{ 
+  overflow: hidden;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx;
+  border-radius: 50%;}
+
+  .name_time{
+    flex-direction: column;
+  }
+  .info,.name_time{
+    display: flex;
+  }
+  .content,.bottom{
+    margin: 25rpx;
+  }
+  .title{
+    display: flex;
+    justify-content: space-around;
+  }
+  .comment{
+    margin-bottom: 20rpx;
+  }
+  .icon image{
+    width: 50rpx;
+    height: 50rpx;
+  }
+  .bottom{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .num{
+    align-self: center;
+  }

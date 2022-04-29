@@ -1,0 +1,81 @@
+<view style='display:flex;height:23px;background-color:purple'></view>
+<view style='display:flex;height:45px;background-color:green' bindtap="tapName">
+  <image style="width: 32px;height: 32px" class="kind-list-img" src="/images/back.png"></image> 
+</view>
+<view id="{{detail.id}}" >
+<view style='background-color:red;color:#fff;height:100rpx;'> {{detail.title}} </view>
+<view style='display:flex;height:400rpx;'>
+<view style='background-color:red;width:250rpx;color:#fff;'>
+  <image class="kind-list-img" src="https://ganesh-pic.oss-cn-hangzhou.aliyuncs.com/{{detail.script.script_cover_url}}"></image>
+</view>
+<view style='flex-grow:1;display:flex;flex-direction:column;'>
+  <view style='flex-grow:1;background-color:blue;color:#fff;'> {{detail.script.script_name}}
+  </view>
+  <view style='flex-grow:1;background-color:green;color:#fff'>
+    <block wx:for="{{detail.script.script_tag}}" >
+      {{item}}
+    </block>
+   </view>
+  <view style='flex-grow:1;background-color:purple;color:#fff'>{{detail.script.script_male_player}}男
+    {{detail.script.script_female_player}}女  {{detail.script.script_difficult_degree}}
+  </view>  
+  </view>
+</view>
+</view>
+
+<!-- <view style="display:flex;flex-direction:column;height:400rpx;">
+  <view style='flex-grow:1;display:flex;height:200rpx;'>
+    <view style='background-color:red;flex-grow:1.5'>
+  <image class="shop-img" src="{{detail.shop.shop_logo}}"></image>
+</view>
+  <view style='background-color:green;color:#fff;flex-grow:1.5'>{{detail.shop.shop_name}}</view>
+  </view>
+    <view style='flex-grow:1;display:flex;'>
+   <view style="flex-grow:2;background-color:blue;color:#fff;">2
+    </view>
+    <view style='flex-grow:1;background-color:purple;color:#fff'>3
+    </view>
+    </view>
+    </view> -->
+
+    
+<view>
+ 
+<view style='display:flex;height:100rpx;'>
+
+<view style='background-color:red;width:100rpx;color:#fff;'>
+  <image class="shop-img" src="{{detail.shop.shop_logo}}"></image>
+</view>
+
+<view style='flex-grow:1;background-color:blue;color:#fff;'> {{detail.shop.shop_name}}
+  </view>
+
+</view>
+
+<view style='flex-grow:1;background-color:purple;color:#fff;height:100rpx;'> {{detail.shop.shop_addr}}
+  </view>
+
+</view>    
+
+<block wx:for="{{detail.personp}}" >
+  <view style='display:flex;height:100rpx;'>
+
+
+    <view style='background-color:red;width:100rpx;color:#fff;'>
+      <image class="shop-img" src="{{item.avatar_url}}"></image>
+    </view>
+
+    <view style='flex-grow:1;background-color:blue;color:#fff;'> {{item.nick_name}}
+      </view>
+      <view style='flex-grow:1;background-color:green;color:#fff;'> {{item.gender}}
+      </view>
+
+  </view>
+</block>
+
+<view>
+  <text>
+    组局规则
+    组局人满后由店家封车，封车前可随时退出并退还上车费用，封车成功后不支持退出。
+  </text>
+</view>

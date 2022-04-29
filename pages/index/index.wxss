@@ -1,0 +1,125 @@
+/*图片列表的css*/
+.kind-list-img {
+  /*占据整个手机长的百分之33，长宽比为八比五*/
+  width: 137rpx;
+  height: 219rpx;
+}
+/*设置page高度百分百，因为list列表会继承page的高度*/
+page{
+  color: black;
+  height:100%;
+  background-color: rgb(242, 242, 242);
+}
+
+.vslist view{
+  color: black;
+  background-color: rgb(255,255,255);
+}
+/*继承了page 百分之百，space evenly 平分空白*/
+.vslist{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.front-head{
+  background-color: rgb(255,255,255);
+}
+.kind-list-column{
+  padding-left: 27rpx;
+}
+.list-item{
+  width: 95%;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 20rpx;
+}
+.kind-list-column > view {
+  width: 100%;
+  display: flex;
+}
+/*两种class用同一种样式*/
+.week , .time{
+  margin-left: 10rpx;
+  /* font-size: large; */
+}
+/* .kind-list-column > view > view {
+  font-weight: 500;
+} */
+image{
+
+  border-radius: 10rpx;
+
+  overflow: hidden;
+
+}
+.kind-list-column > view > image {
+  background-color: gainsboro;
+}
+
+.kind-list-column > view > view {
+  font-size: 80%;
+}
+/*剧本列表图片与文字内容空出10rpx距离*/
+.kind-list-column .kind-list-img {
+  margin-right: 20rpx;
+}
+.time_info{
+  flex-grow:1;
+  font-size: 120%;
+  font-weight: bold;
+}
+/*距离用橘色*/
+.vslist view .km{
+  color: orange;
+}
+.vslist view .price{
+  color: red;
+  font-size: 100%;
+  font-weight: bold;
+}
+/*商店简介*/
+.vslist view .shop-desc{
+  border-radius: 20rpx;
+  overflow: hidden;
+  background-color: rgb(252, 245, 227);
+  padding: 20rpx;
+  font-size: small;
+  margin-top: 15rpx;
+}
+.people image{
+  margin-top:20rpx ;
+  border-radius: 30px;
+  width: 8.5%;
+  height: 60rpx;
+}
+.people{
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+.people .detail {
+  top: 20%;
+  height: 90%;
+  border: thin solid black;
+  width: 25%;
+  right: 0%;
+  position: absolute;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.people .detail image{
+  position: absolute;
+  bottom: 5%;
+  width: 35%;
+  left: 10%;
+}
+
+.people .detail text{
+  position: absolute;
+  right: 20%;
+  bottom: 20%;
+  font-weight: 400;
+  font-size: 90%;
+}

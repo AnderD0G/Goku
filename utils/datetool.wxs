@@ -1,0 +1,44 @@
+var sub = function(val,start,end) {
+
+  if (val.length == 0 || val == undefined) {
+    console.log("Nan")
+    return;
+  }
+  return val.substring(start, end) ;
+  
+}
+var dateLater = function(dates,later){
+    var dateObj = {};
+    var show_day = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+    var date = getDate(dates)
+    date.setDate(date.getDate() + later);
+    var day = date.getDay();
+    var yearDate = date.getFullYear();
+    var month = ((date.getMonth() + 1) < 10 ? ("0" + (date.getMonth() + 1)) : date.getMonth() + 1);
+    var dayFormate = (date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate());
+    dateObj.time =  yearDate+'-'+ month + '-' + dayFormate;
+    dateObj.week = show_day[day];
+    return dateObj;
+}
+var truncate = function(origin){
+    if(origin.length > 5){
+        return origin.slice(0,5)
+    }
+    return origin
+}
+var kmtrans = function(meter){
+  var km =  meter / 1000
+  return km.toFixed(2)
+}
+
+var reply = function(user){
+  return ((user.id ==0)?(user.content):("回复给"))
+}
+
+module.exports = {
+  sub: sub,
+  dateLater: dateLater,
+  truncate :truncate,
+  kmtrans:kmtrans,
+  reply:reply,
+};

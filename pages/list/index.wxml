@@ -1,0 +1,10 @@
+<view style='display:flex;height:25px;background-color:green'></view>
+<view class="e_search">
+  <input focus="{{isFocus}}" bindinput="search" bindtap="tap" bindblur="blur" class="e_search_inp {{isFocus ? 'focus' : ''}}" confirm-type="go" type="text" placeholder="搜索剧本" bindinput="bindKeyInput"/>
+</view>
+<view style='display:flex;height:25px;background-color:green'></view>
+
+<block wx:for="{{lists}}" wx:key="uuid">
+      <view style='flex-grow:1;background-color:blue;color:#fff;'> {{item.script_name}}</view>
+
+  </block>  
